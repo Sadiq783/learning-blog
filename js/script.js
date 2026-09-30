@@ -5,14 +5,17 @@ const articlesSection = document.querySelector("#articles")
 
 function initialize() {
     renderArticles()
+    renderCurrentPost()
     renderFooterDate()
 }
 
 function renderArticles() {
-    const blogsHTML = blogs.map(article => {
+    if (!articlesSection) return
+
+    articlesSection.innerHTML = blogs.map(article => {
         return `
                 <article data-article-id="${article.id}" class="article">
-                    <a href="#" data-id="${article.id}">
+                    <a href="blog.html?id=${encodeURIComponent(article.id)}">
                         <img src="${article.img}" alt="${article.alt}" class="article-img">
                     </a>
                     <time datetime="${new Date(article.date).toLocaleDateString("en-CA")}" class="article-date">${article.date}</time>
@@ -21,8 +24,29 @@ function renderArticles() {
                 </article>
         `
     }).join("")
+}
 
-    articlesSection.innerHTML = blogsHTML
+function renderCurrentPost() {
+    const blogPostSection = document.querySelector("#blog-post")
+
+    if (!blogPostSection) return
+
+    const postId = new URLSearchParams(window.location.search).get("id")
+    const post = blogs.find(blog => String(blog.id) === postId)
+    
+    document.title = `${post.title}`
+
+    const paragraphs = post.articleText.map(text => `<p>${text}</p>`).join("")
+
+    blogPostSection.innerHTML =
+            `
+                <article data-article-id="${post.id}" class="article">
+                    <time datetime="${new Date(post.date).toLocaleDateString("en-CA")}" class="article-date">${post.date}</time>
+                    <h1 class="article-title">${post.title}</h1>
+                    <img src="${post.img}" alt="${post.alt}" class="article-img">
+                    <div class="article-text">${paragraphs}</div>
+                </article>
+            `
 }
 
 function renderFooterDate() {
