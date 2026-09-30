@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;900&display=swap" rel="stylesheet">
 
-    <script src="js/script.js" defer></script>
+    <script src="js/script.js" type="module" defer></script>
 </head>
 <body>
     <header>
@@ -61,35 +61,16 @@
 
     <section class="recent-posts-section">
         <h2>Recent posts</h2>
-        <article class="article-1">
-            <img src="assets/images/article-image-01.png" alt="A laptop laying on a table showing coding on the screen." class="article-img">
-            <time datetime="2022-07-23" class="article-date">July 23, 2022</time>
-            <h2 class="article-title">Blog one</h2>
-            <p class="article-text">I'm excited to start a new learning journey as a Scrimba Bootcamp student! After several months of learning in the Frontend Developer Career Path.</p>
-        </article>
+        <div class="articles" id="articles">
 
-        <article class="article-2">
-            <img src="assets/images/article-image-02.png" alt="A hand holding a glowing light bulb against a dark background." class="article-img">
-            <time datetime="2022-07-23" class="article-date">July 23, 2022</time>
-            <h2 class="article-title">Blog two</h2>
-            <p class="article-text">I'm excited to start a new learning journey as a Scrimba Bootcamp student! After several months of learning in the Frontend Developer Career Path.</p>
-        </article>
-
-        <article class="article-3">
-            <img src="assets/images/article-image-03.png" alt="A laptop on a table with a text on the screen. The text is, I design and develop experiences the makes people's lives simple." class="article-img">
-            <time datetime="2022-07-23" class="article-date">July 23, 2022</time>
-            <h2 class="article-title">Blog three</h2>
-            <p class="article-text">I'm excited to start a new learning journey as a Scrimba Bootcamp student! After several months of learning in the Frontend Developer Career Path.</p>
-        </article>
+        </div>
         
-        <button class="view-more-btn">View more</button>
     </section>
-
+    <div class="show-more-btn">
+        <button class="view-more-btn">View more</button>
+    </div>
     <footer>
         <p>My learning Blog</p>
-        <p class="copyright-text">
-            Copyright &copy;<time datetime="" class="copyright-date"></time>
-        </p>
     </footer>
 </body>
 </html>
