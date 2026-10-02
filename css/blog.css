@@ -1,0 +1,26 @@
+.blog-post {
+    padding: 0 2em;
+
+    @media (width > 700px) {
+        max-width: 1000px;
+        margin: auto;
+    }
+}
+
+.blog-post img {
+    display: block;
+    margin-bottom: 2em;
+    width: 100%;
+}
+
+.blog-post img:hover {
+    transform: scale(1);
+}
+
+p:not(footer p) {
+    margin-bottom: 1em;
+}
+
+.recent-posts-title {
+    text-align: center;
+}
